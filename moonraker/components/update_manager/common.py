@@ -42,7 +42,8 @@ BASE_CONFIG: Dict[str, Dict[str, str]] = {
     }
 }
 
-OPTION_OVERRIDES = ("channel", "pinned_commit", "refresh_interval", "report_anomalies")
+OPTION_OVERRIDES = ("channel", "pinned_commit", "refresh_interval", "report_anomalies", 
+                    "origin", "managed_services", "type", "primary_branch", "path")
 
 class AppType(ExtendedEnum):
     NONE = 1
