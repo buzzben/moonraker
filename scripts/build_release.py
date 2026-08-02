@@ -33,7 +33,7 @@ GIT_LOG_FMT = \
     "sha:%H%x1Dauthor:%an%x1Ddate:%ct%x1Dsubject:%s%x1Dmessage:%b%x1E"
 OWNER_REPOS = {
     'moonraker': "arksine/moonraker",
-    'klippy': "klipper3d/klipper"
+    'klippy': "buzzben/klipper"
 }
 INSTALL_SCRIPTS = {
     'klippy': {
