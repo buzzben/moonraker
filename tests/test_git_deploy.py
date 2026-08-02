@@ -36,9 +36,9 @@ async def test_find_current_branch_on_branch() -> None:
     repo = make_repo(["* master", "  dev"], tracking_remote="origin")
     await repo._find_current_branch()
     assert repo.head_detached is False
-    #assert repo.git_branch == "master"
-    #assert repo.git_remote == "origin"
-    #assert repo.branches == ["master", "dev"]
+    assert repo.git_branch == "master"
+    assert repo.git_remote == "origin"
+    assert repo.branches == ["master", "dev"]
     repo.config_get.assert_awaited_once_with("branch.master.remote")
 
 
@@ -48,8 +48,8 @@ async def test_find_current_branch_detached_at_remote_branch() -> None:
     repo = make_repo(["* (HEAD detached at origin/master)", "  master"])
     await repo._find_current_branch()
     assert repo.head_detached is True
-    #assert repo.git_branch == "master"
-    #assert repo.git_remote == "origin"
+    assert repo.git_branch == "master"
+    assert repo.git_remote == "origin"
     repo.config_get.assert_not_awaited()
 
 
@@ -86,6 +86,6 @@ async def test_find_current_branch_no_branch_keeps_previous_tracking() -> None:
     )
     await repo._find_current_branch()
     assert repo.head_detached is True
-    #assert repo.git_remote == "origin"
-    #assert repo.git_branch == "master"
+    assert repo.git_remote == "origin"
+    assert repo.git_branch == "master"
     repo.config_get.assert_not_awaited()
