@@ -738,8 +738,7 @@ class GitRepo:
             if upstream_url[-4:] != ".git":
                 upstream_url += ".git"
             if upstream_url != self.origin_url.lower():
-                logging.info(
-                #self.repo_anomalies.append(
+                self.repo_anomalies.append(
                     f"Unofficial remote url: {self.upstream_url}"
                 )
         if self.untracked_files:
