@@ -727,8 +727,7 @@ class GitRepo:
                 f"Failed to detect tracking remote for branch {self.git_branch}"
             )
         elif self.git_branch != self.primary_branch or self.git_remote != "origin":
-            logging.info(
-            #self.repo_anomalies.append(
+            self.repo_anomalies.append(
                 "Repo not on official remote/branch, expected: "
                 f"origin/{self.primary_branch}, detected: "
                 f"{self.git_remote}/{self.git_branch}")
